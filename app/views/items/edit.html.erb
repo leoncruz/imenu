@@ -1,0 +1,7 @@
+<%= turbo_frame_tag "edit_item" do %>
+  <%= render SimpleModalComponent.new(t('items.edit.title'), edit_menu_path(@item.category.menu)) do |component| %>
+    <% component.with_body do %>
+      <%= render 'form', item: @item, url: item_path, method: :patch %>
+    <% end %>
+  <% end %>
+<% end %>

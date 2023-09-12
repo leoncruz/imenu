@@ -33,3 +33,8 @@ pt-BR:
   items:
     new:
       title: Novo Item
+    item:
+      edit: Editar
+      remove: Remover
+    edit:
+      title: Editar Item
