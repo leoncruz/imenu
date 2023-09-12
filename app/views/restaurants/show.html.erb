@@ -6,18 +6,26 @@
   <div class="w-full space-y-5 flex flex-col items-center">
     <% if @restaurant.menu %>
       <% @restaurant.menu.categories.each do |category| %>
-        <div class="w-11/12 border rounded-lg shadow-sm flex flex-col p-6 bg-white">
+        <div class="w-11/12 border rounded-lg shadow-sm flex flex-col p-6 bg-white" data-controller="accordion">
           <div class="flex flex-row items-center">
             <h1 class="text-xl"><%= category.name %></h1>
 
-            <div class="ml-auto cursor-pointer text-blue-500">
-              <svg data-accordion-target="icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+            <button class="ml-auto cursor-pointer text-blue-500" data-action="click->accordion#toggle" aria-label="Toggle Items">
+              <svg data-accordion-target="icon"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                stroke="currentColor" class="w-6 h-6" id="down-arrow"
+              >
                 <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
               </svg>
-            </div>
+
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 hidden" id="up-arrow">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 15.75l7.5-7.5 7.5 7.5" />
+              </svg>
+            </button>
           </div>
 
-          <div class="gap-4 mt-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
+          <div class="items gap-4 mt-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
             <% category.items.each do |item| %>
               <div class="border rounded-lg shadow-sm w-full h-fit flex flex-row p-2 space-x-4 lg:space-x-0 lg:flex-col lg:items-start">
                 <img class="my-2 w-[150px] border rounded-lg" src="https://generatorfun.com/code/uploads/Random-Food-image-7.jpg" />
