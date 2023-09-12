@@ -17,7 +17,7 @@ class EditACategoryTest < ApplicationSystemTestCase
     category = categories(:desserts)
 
     within "#category_#{category.id}" do
-      click_on I18n.t('categories.category.edit')
+      click_on I18n.t('categories.category.edit'), match: :first
 
       fill_in Item.human_attribute_name(:name), with: 'Desserts'
 
@@ -31,7 +31,7 @@ class EditACategoryTest < ApplicationSystemTestCase
     category = categories(:desserts)
 
     within "#category_#{category.id}" do
-      click_on I18n.t('categories.category.edit')
+      click_on I18n.t('categories.category.edit'), match: :first
 
       fill_in Item.human_attribute_name(:name), with: ''
 

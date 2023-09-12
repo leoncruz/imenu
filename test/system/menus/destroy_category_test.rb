@@ -18,7 +18,7 @@ class CreateCategoryTest < ApplicationSystemTestCase
 
     within "#category_#{burgers.id}" do
       accept_alert I18n.t('helpers.alert.destroy') do
-        click_on I18n.t('categories.category.remove')
+        click_on I18n.t('categories.category.remove'), match: :first
       end
     end
 
