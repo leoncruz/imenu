@@ -12,11 +12,12 @@ class CategoriesController < ApplicationController
 
     if @category.save
       render turbo_stream: [
-        turbo_stream.replace(category_dom_id, partial: 'categories/category', locals: { category: @category })
+        turbo_stream.append('list_categories', partial: 'categories/category', locals: { category: @category }),
+        turbo_stream.update('new_category', '')
       ]
     else
       render turbo_stream: [
-        turbo_stream.replace(category_dom_id, template: 'categories/new', formats: [:turbo_stream])
+        turbo_stream.replace('new_category', template: 'categories/new', formats: [:html])
       ]
     end
   end
@@ -35,9 +36,5 @@ class CategoriesController < ApplicationController
 
   def category_params
     params.require(:category).permit(:name)
-  end
-
-  def category_dom_id
-    params[:category][:dom_id]
   end
 end

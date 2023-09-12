@@ -1,10 +1,11 @@
 <%= form_with model: category, url: url, class: "w-full flex flex-row items-center gap-5" do |f| %>
-  <%= f.hidden_field :dom_id %>
-
   <div class="w-full flex flex-col space-y-2">
     <%= f.label :name  %>
     <%= f.text_field :name, class: "w-full py-2 px-4 border rounded-lg" %>
     <span class="text-red-500"><%= f.object.errors[:name].to_sentence %></span>
   </div>
-  <%= f.submit class: "py-2 px-4 border rounded-lg shadow bg-amber-300 text-black cursor-pointer self-end" %>
+  <div class="flex items-center space-x-4">
+    <%= f.submit class: "py-2 px-4 border rounded-lg shadow bg-amber-300 text-black cursor-pointer self-end" %>
+    <%= link_to 'Cancelar', edit_menu_path(category.menu), class: "text-red-500 font-normal" %>
+  </div>
 <% end %>
