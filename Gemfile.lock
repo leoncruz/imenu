@@ -306,6 +306,10 @@ GEM
     tzinfo (2.0.6)
       concurrent-ruby (~> 1.0)
     unicode-display_width (2.4.2)
+    view_component (3.5.0)
+      activesupport (>= 5.2.0, < 8.0)
+      concurrent-ruby (~> 1.0)
+      method_source (~> 1.0)
     virtus (2.0.0)
       axiom-types (~> 0.1)
       coercible (~> 1.0)
@@ -357,6 +361,7 @@ DEPENDENCIES
   sprockets-rails
   stimulus-rails
   turbo-rails
+  view_component
   web-console
   webdrivers
 

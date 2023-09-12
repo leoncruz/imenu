@@ -7,7 +7,6 @@ ruby '3.2.2'
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem 'rails', '~> 7.0.7', '>= 7.0.7.2'
-
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem 'sprockets-rails'
 
@@ -49,6 +48,9 @@ gem 'devise'
 
 # Simple, efficient background processing for Ruby.
 gem 'sidekiq'
+
+# A framework for creating reusable, testable & encapsulated view components.
+gem 'view_component'
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
