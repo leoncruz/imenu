@@ -10,10 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_09_07_025154) do
+ActiveRecord::Schema[7.0].define(version: 2023_09_07_025534) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
   enable_extension "plpgsql"
+
+  create_table "categories", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.uuid "menu_id", null: false
+    t.string "name", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["menu_id"], name: "index_categories_on_menu_id"
+    t.index ["name"], name: "index_categories_on_name", unique: true
+  end
 
   create_table "menus", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.uuid "restaurant_id", null: false
@@ -41,5 +50,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_07_025154) do
     t.index ["reset_password_token"], name: "index_restaurants_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "categories", "menus"
   add_foreign_key "menus", "restaurants"
 end
