@@ -19,6 +19,9 @@ pt-BR:
     edit: Editar Cardápio
     form:
       add_category: Adicionar categoria
+
+  categories:
+    category:
       new_item: Novo item
       edit: Editar
       remove: Remover
