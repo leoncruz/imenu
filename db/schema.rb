@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_09_07_025534) do
+ActiveRecord::Schema[7.0].define(version: 2023_09_07_030714) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
   enable_extension "plpgsql"
@@ -22,6 +22,18 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_07_025534) do
     t.datetime "updated_at", null: false
     t.index ["menu_id"], name: "index_categories_on_menu_id"
     t.index ["name"], name: "index_categories_on_name", unique: true
+  end
+
+  create_table "items", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.uuid "category_id", null: false
+    t.string "name", null: false
+    t.decimal "price", null: false
+    t.text "description", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["category_id"], name: "index_items_on_category_id"
+    t.index ["name"], name: "index_items_on_name", unique: true
+    t.index ["price"], name: "index_items_on_price"
   end
 
   create_table "menus", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
@@ -51,5 +63,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_07_025534) do
   end
 
   add_foreign_key "categories", "menus"
+  add_foreign_key "items", "categories"
   add_foreign_key "menus", "restaurants"
 end

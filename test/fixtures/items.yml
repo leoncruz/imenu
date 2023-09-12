@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+burger_jr:
+  category: burgers
+  name: Burger King Jr.
+  price: 37.50
+  description: ''
+
+oreo_milk_shake:
+  category: desserts
+  name: Milk Shake - Óreo
+  price: 19.99
+  description: ''
