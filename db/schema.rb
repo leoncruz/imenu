@@ -28,7 +28,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_07_030714) do
     t.uuid "category_id", null: false
     t.string "name", null: false
     t.decimal "price", null: false
-    t.text "description", null: false
+    t.text "description", default: "", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["category_id"], name: "index_items_on_category_id"
