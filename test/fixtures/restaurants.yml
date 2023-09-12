@@ -10,8 +10,10 @@ burger_king:
   name: Burger Kind
   email: bk@email.com
   encrypted_password: <%= BCrypt::Password.create('123123', cost: 1) %>
+  confirmed_at: <%= Time.current %>
 
 spoleto:
   name: Spoleto
   email: spoleto@email.com
   encrypted_password: <%= BCrypt::Password.create('123123', cost: 1) %>
+  confirmed_at: <%= Time.current %>

@@ -39,3 +39,6 @@ Style/SymbolArray:
 
 Style/HashAsLastArrayItem:
   Enabled: false
+
+Minitest/MultipleAssertions:
+  Enabled: false
