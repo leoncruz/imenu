@@ -1,7 +1,7 @@
 <%= turbo_frame_tag "new_category" do %>
   <%= render SimpleModalComponent.new(t('categories.new.title'), edit_menu_path(@category.menu)) do |component| %>
     <% component.with_body do %>
-      <%= render 'form', category: @category, url: menu_categories_path %>
+      <%= render 'form', category: @category, url: menu_categories_path, method: :post %>
     <% end %>
   <% end %>
 <% end %>

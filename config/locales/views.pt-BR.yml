@@ -23,6 +23,8 @@ pt-BR:
   categories:
     new:
       title: Nova categoria
+    edit:
+      title: Editar categoria
     category:
       new_item: Novo item
       edit: Editar
