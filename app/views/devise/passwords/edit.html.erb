@@ -1,0 +1,27 @@
+<div class="w-full h-full flex flex-col items-center justify-center">
+  <h2 class="text-2xl"><%= t('devise.passwords.edit.change_your_password') %></h2>
+
+  <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
+    <div class="space-y-4">
+      <%= f.hidden_field :reset_password_token %>
+
+      <div class="flex flex-col space-y-2">
+        <%= f.label :password, t('devise.passwords.edit.new_password')  %><br />
+        <%= f.password_field :password, class:"py-2 px-4 border rounded-lg" %>
+          <span class="text-red-500"><%= f.object.errors[:password].to_sentence %></span>
+      </div>
+
+      <div class="flex flex-col space-y-2">
+        <%= f.label :password_confirmation, t('devise.passwords.edit.confirm_new_password') %><br />
+        <%= f.password_field :password_confirmation, class:"py-2 px-4 border rounded-lg" %>
+          <span class="text-red-500"><%= f.object.errors[:password_confirmation].to_sentence %></span>
+      </div>
+
+      <div class="flex flex-col">
+        <%= f.submit t('devise.passwords.edit.change_my_password') , class: "py-2 px-4 border rounded-lg shadow bg-amber-300 text-black cursor-pointer" %>
+
+        <%= render "devise/shared/links" %>
+      </div>
+    </div>
+  <% end %>
+</div>

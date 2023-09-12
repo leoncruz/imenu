@@ -1,0 +1,6 @@
+pt-BR:
+  activerecord:
+    models:
+      restaurant:
+        one: Restaurante
+        other: Restaurantes

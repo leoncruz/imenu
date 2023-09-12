@@ -1,0 +1,30 @@
+<div class="w-full h-full flex flex-col items-center justify-center">
+  <h2 class="text-2xl"><%= t('devise.sessions.new.sign_in') %></h2>
+
+  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    <div class="space-y-4">
+      <div class="flex flex-col space-y-2">
+        <%= f.label :email %><br />
+        <%= f.email_field :email, class:"w-full py-2 px-4 border rounded-lg" %>
+        <span class="text-red-500"><%= f.object.errors[:email].to_sentence %></span>
+      </div>
+
+      <div class="flex flex-col space-y-2">
+        <%= f.label :password %><br />
+        <%= f.password_field :password, class:"w-full py-2 px-4 border rounded-lg" %>
+        <span class="text-red-500"><%= f.object.errors[:password].to_sentence %></span>
+      </div>
+
+      <div class="">
+        <%= f.check_box :remember_me %>
+        <%= f.label :remember_me %>
+      </div>
+
+      <div class="flex flex-col w-full justify-center items-center">
+        <%= f.submit t('devise.sessions.new.sign_in'), class: "py-2 px-4 border rounded-lg shadow bg-amber-300 text-black cursor-pointer"  %>
+
+        <%= render "devise/shared/links" %>
+      </div>
+    </div>
+  <% end %>
+</div>

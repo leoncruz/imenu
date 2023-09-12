@@ -1,0 +1,18 @@
+<div class="w-full h-full flex flex-col items-center justify-center">
+  <h2 class="text-2xl mb-10"><%= t('devise.confirmations.new.resend_confirmation_instructions') %></h2>
+
+  <%= form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f| %>
+    <div class="space-y-4">
+      <div class="flex flex-col space-y-2">
+        <%= f.label :email %>
+        <%= f.email_field :email, class:"py-2 px-4 border rounded-lg", value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email) %>
+      </div>
+
+      <div class="flex flex-col w-full justify-center items-center">
+        <%= f.submit 'Enviar', class: 'py-2 px-4 border rounded-lg shadow bg-amber-300 text-black cursor-pointer' %>
+
+        <%= render "devise/shared/links" %>
+      </div>
+    </div>
+  <% end %>
+</div>

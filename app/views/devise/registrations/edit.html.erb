@@ -1,0 +1,53 @@
+<div class="w-full h-full flex flex-col items-center justify-center space-y-10">
+  <div>
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+      <div class="space-y-4">
+        <div class="flex flex-col space-y-2">
+          <%= f.label :email %>
+          <%= f.email_field :email, class: "w-full py-2 px-4 border rounded-lg" %>
+          <span class="text-red-500"><%= f.object.errors[:email].to_sentence %></span>
+        </div>
+
+        <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+          <div><%= t('devise.registrations.edit.currently_waiting_confirmation_for_email') %>: <%= resource.unconfirmed_email %></div>
+        <% end %>
+
+        <div class="flex flex-col space-y-2">
+          <%= f.label :password %> <i>(<%= t('devise.registrations.edit.leave_blank_if_you_don_t_want_to_change_it') %>)</i>
+          <%= f.password_field :password, class: "w-full py-2 px-4 border rounded-lg" %>
+          <span class="text-red-500"><%= f.object.errors[:password].to_sentence %></span>
+        </div>
+
+        <div class="flex flex-col space-y-2">
+          <%= f.label :password_confirmation %>
+          <%= f.password_field :password_confirmation, class: "w-full py-2 px-4 border rounded-lg"  %>
+          <span class="text-red-500"><%= f.object.errors[:password_confirmation].to_sentence %></span>
+        </div>
+
+        <div class="flex flex-col space-y-2">
+          <%= f.label :current_password %> <i>(<%= t('devise.registrations.edit.we_need_your_current_password_to_confirm_your_changes') %>)</i><br />
+          <%= f.password_field :current_password, class: "w-full py-2 px-4 border rounded-lg" %>
+          <span class="text-red-500"><%= f.object.errors[:password].to_sentence %></span>
+        </div>
+
+        <div class="flex flex-col w-full justify-center items-center">
+          <%= f.submit class: "py-2 px-4 border rounded-lg shadow bg-amber-300 text-black cursor-pointer"  %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="flex flex-col">
+    <h3 class="text-2xl"><%= t('devise.registrations.edit.cancel_my_account') %></h3>
+
+    <div class="space-y-4">
+      <%= t('devise.registrations.edit.unhappy') %>
+      <%= button_to t('devise.registrations.edit.cancel_my_account'),
+        registration_path(resource_name),
+        data: { confirm: t('devise.registrations.edit.are_you_sure'), turbo_confirm: t('devise.registrations.edit.are_you_sure') },
+        method: :delete,
+        class: "py-2 px-4 border rounded-lg shadow bg-red-500 text-white cursor-pointer"
+      %>
+    </div>
+  </div>
+</div>
