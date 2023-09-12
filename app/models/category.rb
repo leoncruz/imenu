@@ -5,4 +5,8 @@ class Category < ApplicationRecord
   has_many :items, dependent: :destroy
 
   validates :name, presence: true, uniqueness: true
+
+  def dom_id
+    @dom_id ||= ActionView::RecordIdentifier.dom_id(self, Time.current.to_i)
+  end
 end
