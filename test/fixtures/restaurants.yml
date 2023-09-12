@@ -7,9 +7,11 @@
 <% require 'bcrypt' %>
 
 burger_king:
+  name: Burger Kind
   email: bk@email.com
-  encrypted_password: <%= BCrypt::Password.new('123123', cost: 1)
+  encrypted_password: <%= BCrypt::Password.create('123123', cost: 1) %>
 
 spoleto:
+  name: Spoleto
   email: spoleto@email.com
-  encrypted_password: <%= BCrypt::Password.new('123123', cost: 1)
+  encrypted_password: <%= BCrypt::Password.create('123123', cost: 1) %>

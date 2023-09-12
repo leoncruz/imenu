@@ -4,6 +4,12 @@
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
     <div class="space-y-4">
       <div class="flex flex-col space-y-2">
+        <%= f.label :name %>
+        <%= f.text_field :name, class: "w-full py-2 px-4 border rounded-lg" %>
+        <span class="text-red-500"><%= f.object.errors[:name].to_sentence %></span>
+      </div>
+
+      <div class="flex flex-col space-y-2">
         <%= f.label :email %>
         <%= f.email_field :email, class: "w-full py-2 px-4 border rounded-lg" %>
         <span class="text-red-500"><%= f.object.errors[:email].to_sentence %></span>
