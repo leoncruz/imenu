@@ -1,0 +1,35 @@
+require:
+  - rubocop-rails
+  - rubocop-performance
+  - rubocop-minitest
+  - rubocop-capybara
+
+AllCops:
+  TargetRubyVersion: 3.2.2
+
+  Exclude:
+    - 'bin/*'
+    - 'tmp/*'
+    - 'db/schema.rb'
+    - 'db/migrate/*'
+    - 'vendor/bundle/**/*'
+
+  NewCops: enable
+
+Metrics:
+  Enabled: false
+
+Style/Documentation:
+  Enabled: false
+
+Style/ClassAndModuleChildren:
+  Enabled: false
+
+Style/HashSyntax:
+  Enabled: false
+
+Style/MixinGrouping:
+  Enabled: false
+
+Style/Lambda:
+  Enabled: false
