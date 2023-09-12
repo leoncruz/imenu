@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   devise_for :restaurants, path: :accounts
 
   resources :restaurants, only: :show do
-    resources :menus, shallow: true, except: :index
+    resources :menus, shallow: true, except: :index do
+      resources :categories, shallow: true
+    end
   end
 end
