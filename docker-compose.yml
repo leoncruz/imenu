@@ -1,0 +1,47 @@
+version: '3.9'
+
+services:
+  database:
+    image: postgres:15
+    volumes:
+      - .docker/db:/var/lib/postgresql/data
+    environment:
+      POSTGRES_USER: imenu_user
+      POSTGRES_PASSWORD: 123123
+      POSTGRES_DB: imenu_dev
+    ports:
+      - 5432:5432
+
+  mail:
+    image: "jonathanccalixto/mailcatcher:latest"
+    ports:
+      - "1080:1080"
+      - "1025:1025"
+
+  redis:
+    image: redis:7.0-alpine
+    ports:
+      - '6379:6379'
+
+  sidekiq:
+    build: .
+    depends_on:
+      - database
+      - mail
+      - redis
+    volumes:
+      - '.:/app'
+    environment:
+      REDIS_URL: redis://redis:6379/1
+      MAILER_HOST: mail
+      MAILER_PORT: 1025
+      DATABASE_URL: postgresql://imenu_user:123123@database:5432/imenu_dev
+
+  database-test:
+    image: postgres:15
+    environment:
+      POSTGRES_USER: imenu_user
+      POSTGRES_PASSWORD: 123123
+      POSTGRES_DB: imenu_test
+    ports:
+      - 5433:5432

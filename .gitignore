@@ -38,3 +38,8 @@
 coverage/
 rubycritic/
 brakeman/
+
+.env.development
+.env.test
+
+.docker/db/
