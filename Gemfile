@@ -52,6 +52,9 @@ gem 'sidekiq'
 # A framework for creating reusable, testable & encapsulated view components.
 gem 'view_component'
 
+# A library for creating and rendering QR codes into various formats
+gem 'rqrcode'
+
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem 'brakeman'
