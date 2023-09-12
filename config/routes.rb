@@ -3,7 +3,7 @@
 Rails.application.routes.draw do
   root 'home#index'
 
-  devise_for :restaurants
+  devise_for :restaurants, path: :accounts
 
   resources :restaurants, only: :show
 end

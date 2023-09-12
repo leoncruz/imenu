@@ -1,0 +1,25 @@
+<nav class="bg-white border-lg rounded-lg p-2">
+  <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+    <% if current_restaurant %>
+      <%= link_to t('navbar.my_page'), restaurant_path(current_restaurant) %>
+    <% else %>
+      <%= link_to t('navbar.home'), root_path %>
+    <% end %>
+
+    <ul class="flex space-x-5 list-none">
+      <% if current_restaurant %>
+        <li>
+          <%= link_to t('navbar.my_account'), edit_restaurant_registration_path(current_restaurant) %>
+        </li>
+        <li><%= t('navbar.menu') %></li>
+        <li><%= link_to t('navbar.logout'), destroy_restaurant_session_path, data: { turbo_method: :delete }, class: "py-2 px-4 rounded-lg shadow bg-red-500 text-white cursor-pointer" %></li>
+      <% else %>
+        <li><%= link_to t('navbar.login'), new_restaurant_session_path %></li>
+        <li>
+          <%= link_to t('navbar.sign_up'), new_restaurant_registration_path, class: "py-2 px-4 border rounded-lg shadow bg-amber-300 text-black cursor-pointer" %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+
+</nav>

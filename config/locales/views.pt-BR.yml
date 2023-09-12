@@ -1,4 +1,13 @@
 pt-BR:
+  navbar:
+    my_page: Minha Página
+    home: Início
+    my_account: Minha Conta
+    logout: Sair
+    login: Entrar
+    sign_up: Cadastrar
+    menu: Cardápio
+
   restaurants:
     registrations:
       new: Cadastrar
