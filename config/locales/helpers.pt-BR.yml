@@ -1,5 +1,8 @@
 pt-BR:
   helpers:
+    alert:
+      destroy: Você tem certeza?
+
     submit:
       restaurant:
         create: Cadastrar

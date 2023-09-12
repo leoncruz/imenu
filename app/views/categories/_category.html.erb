@@ -1,4 +1,4 @@
-<%= tag.div class: "w-11/12 border rounded-lg shadow-sm flex flex-col p-6 bg-white", id: dom_id(category) do %>
+<%= tag.div class: "category w-11/12 border rounded-lg shadow-sm flex flex-col p-6 bg-white", id: dom_id(category) do %>
   <div class="flex flex-row items-center">
     <h1 class="text-xl"><%= category.name %></h1>
 
@@ -29,7 +29,7 @@
       <% end %>
     </div>
     <div class=" text-red-500">
-      <%= link_to category, data: { turbo_method: :delete, turbo_confirm: 'Você tem certeza?' }, class: "flex flex-row space-x-2 items-center" do %>
+      <%= link_to category, data: { turbo_method: :delete, turbo_confirm: t('helpers.alert.destroy') }, class: "flex flex-row space-x-2 items-center" do %>
         <span><%= t('categories.category.remove') %></span>
 
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
