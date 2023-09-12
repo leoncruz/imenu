@@ -11,8 +11,16 @@
         <li>
           <%= link_to t('navbar.my_account'), edit_restaurant_registration_path(current_restaurant) %>
         </li>
-        <li><%= t('navbar.menu') %></li>
-        <li><%= link_to t('navbar.logout'), destroy_restaurant_session_path, data: { turbo_method: :delete }, class: "py-2 px-4 rounded-lg shadow bg-red-500 text-white cursor-pointer" %></li>
+        <li>
+          <% if current_restaurant.menu&.persisted? %>
+            <%= link_to t('navbar.menu'), edit_menu_path(current_restaurant.menu) %>
+          <% else %>
+            <%= link_to t('navbar.menu'), new_restaurant_menu_path(current_restaurant) %>
+          <% end %>
+        </li>
+        <li>
+          <%= link_to t('navbar.logout'), destroy_restaurant_session_path, data: { turbo_method: :delete }, class: "py-2 px-4 rounded-lg shadow bg-red-500 text-white cursor-pointer" %>
+        </li>
       <% else %>
         <li><%= link_to t('navbar.login'), new_restaurant_session_path %></li>
         <li>
