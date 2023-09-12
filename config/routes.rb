@@ -5,5 +5,7 @@ Rails.application.routes.draw do
 
   devise_for :restaurants, path: :accounts
 
-  resources :restaurants, only: :show
+  resources :restaurants, only: :show do
+    resources :menus, shallow: true, except: :index
+  end
 end

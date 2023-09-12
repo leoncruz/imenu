@@ -11,3 +11,14 @@ pt-BR:
   restaurants:
     registrations:
       new: Cadastrar
+    show:
+      empty_menu: Cardápio Vazio
+
+  menus:
+    new: Novo Cardápio
+    edit: Editar Cardápio
+    form:
+      add_category: Adicionar categoria
+      new_item: Novo item
+      edit: Editar
+      remove: Apagar

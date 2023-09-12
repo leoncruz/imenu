@@ -33,3 +33,9 @@ Style/MixinGrouping:
 
 Style/Lambda:
   Enabled: false
+
+Style/SymbolArray:
+  Enabled: false
+
+Style/HashAsLastArrayItem:
+  Enabled: false

@@ -1,0 +1,5 @@
+<div class="w-full flex flex-col mt-10">
+  <h2 class="text-2xl text-center"><%= t('menus.edit') %></h2>
+
+  <%= render 'form', menu: @menu, url: edit_menu_path(@menu) %>
+</div>
