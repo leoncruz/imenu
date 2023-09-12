@@ -1,5 +1,6 @@
 pt-BR:
   helpers:
+    cancel: Cancelar
     alert:
       destroy: Você tem certeza?
 
@@ -9,3 +10,6 @@ pt-BR:
 
       category:
         create: Salvar
+
+      item:
+        create: Adicionar

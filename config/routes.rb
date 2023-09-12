@@ -7,7 +7,9 @@ Rails.application.routes.draw do
 
   resources :restaurants, only: :show do
     resources :menus, shallow: true, except: :index do
-      resources :categories, shallow: true
+      resources :categories, shallow: true do
+        resources :items, shallow: true
+      end
     end
   end
 end

@@ -21,7 +21,13 @@ pt-BR:
       add_category: Adicionar categoria
 
   categories:
+    new:
+      title: Nova categoria
     category:
       new_item: Novo item
       edit: Editar
       remove: Remover
+
+  items:
+    new:
+      title: Novo Item

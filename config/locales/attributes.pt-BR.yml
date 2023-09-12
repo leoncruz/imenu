@@ -29,3 +29,8 @@ pt-BR:
 
       category:
         name: Nome
+
+      item:
+        name: Nome
+        price: Preço
+        description: Descrição

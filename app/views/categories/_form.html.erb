@@ -6,6 +6,6 @@
   </div>
   <div class="flex items-center space-x-4">
     <%= f.submit class: "py-2 px-4 border rounded-lg shadow bg-amber-300 text-black cursor-pointer self-end" %>
-    <%= link_to 'Cancelar', edit_menu_path(category.menu), class: "text-red-500 font-normal" %>
+    <%= link_to t('helpers.cancel'), edit_menu_path(category.menu), class: "text-red-500 font-normal" %>
   </div>
 <% end %>

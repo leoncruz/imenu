@@ -1,7 +1,7 @@
 <%= turbo_frame_tag "new_category", class: "w-full flex items-center justify-center" do %>
   <%= tag.div class: "w-11/12 border rounded-lg shadow-sm flex flex-col p-6 bg-white space-y-5 md:space-y-2" do %>
     <div class="flex flex-row items-baseline">
-      <h1 class="text-xl">Nova categoria</h1>
+      <h1 class="text-xl"><%= t('categories.new.title') %></h1>
     </div>
 
     <div class="w-full flex flex-row">

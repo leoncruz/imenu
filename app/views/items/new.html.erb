@@ -1,0 +1,7 @@
+<%= turbo_frame_tag "new_item" do %>
+  <%= render SimpleModalComponent.new(t('items.new.title'), edit_menu_path(@item.category.menu)) do |component| %>
+    <% component.with_body do %>
+      <%= render 'form', item: @item, url: category_items_path %>
+    <% end %>
+  <% end %>
+<% end %>

@@ -4,7 +4,7 @@
 
     <div class="flex flex-row justify-center md:justify-end space-x-4 my-4">
       <div class="text-green-500">
-        <%= link_to edit_menu_path(category), class: "flex flex-row space-x-2 items-center" do %>
+        <%= link_to new_category_item_path(category), class: "flex flex-row space-x-2 items-center", data: { turbo_frame: "new_item" } do %>
           <span><%= t('categories.category.new_item') %></span>
 
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-4 h-4">
@@ -39,17 +39,9 @@
     </div>
   </div>
 
-  <div class="gap-4 mt-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
-    <% category.items.each do |item| %>
-      <div class="border rounded-lg shadow-sm w-full h-fit flex flex-row p-2 space-x-4 lg:space-x-0 lg:flex-col lg:items-start">
-        <img class="my-2 w-[150px] border rounded-lg" src="https://generatorfun.com/code/uploads/Random-Food-image-7.jpg" />
+  <%= turbo_frame_tag "new_item" %>
 
-        <div class="flex flex-col items-start justify-center space-y-5 lg:space-y-0 lg:m-0">
-          <h1 class="text-lg"><%= item.name %></h1>
-
-          <span class="text-sm font-bold"><%= number_to_currency(item.price, precision: 2) %></span>
-        </div>
-      </div>
-    <% end %>
-  </div>
+  <%= tag.div class: "gap-4 mt-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4", id: dom_id(category, "items") do %>
+    <%= render partial: 'items/item', collection: category.items %>
+  <% end %>
 <% end %>

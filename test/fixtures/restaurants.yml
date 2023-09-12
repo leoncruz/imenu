@@ -7,7 +7,7 @@
 <% require 'bcrypt' %>
 
 burger_king:
-  name: Burger Kind
+  name: Burger King
   email: bk@email.com
   encrypted_password: <%= BCrypt::Password.create('123123', cost: 1) %>
   confirmed_at: <%= Time.current %>
