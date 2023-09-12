@@ -10,6 +10,12 @@
       </div>
 
       <div class="flex flex-col space-y-2">
+        <%= f.label :slug %>
+        <%= f.text_field :slug, class: "w-full py-2 px-4 border rounded-lg" %>
+        <span class="text-red-500"><%= f.object.errors[:slug].to_sentence %></span>
+      </div>
+
+      <div class="flex flex-col space-y-2">
         <%= f.label :email %>
         <%= f.email_field :email, class: "w-full py-2 px-4 border rounded-lg" %>
         <span class="text-red-500"><%= f.object.errors[:email].to_sentence %></span>
