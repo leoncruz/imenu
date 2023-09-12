@@ -8,6 +8,6 @@ class RestaurantsController < ApplicationController
   private
 
   def set_restaurant
-    @restaurant = Restaurant.includes(menu: { categories: :items }).find(params[:id])
+    @restaurant = Restaurant.includes(menu: { categories: :items }).find_by!(slug: params[:slug])
   end
 end
