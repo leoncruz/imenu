@@ -3,3 +3,6 @@ pt-BR:
     submit:
       restaurant:
         create: Cadastrar
+
+      category:
+        create: Salvar
