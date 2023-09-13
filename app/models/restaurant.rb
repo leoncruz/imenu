@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class Restaurant < ApplicationRecord
-  include Slugable, Menuable
+  include Slugable, Menuable, QrcodeGeneratable
 
   slug_base_field :name
 

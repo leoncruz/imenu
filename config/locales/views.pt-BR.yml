@@ -7,6 +7,7 @@ pt-BR:
     login: Entrar
     sign_up: Cadastrar
     menu: Cardápio
+    qrcodes: QRCodes
 
   restaurants:
     registrations:

@@ -35,5 +35,7 @@ module Imenu
     config.active_job.queue_adapter = :sidekiq
 
     config.action_view.field_error_proc = ->(html_tag, _instance) { html_tag }
+
+    routes.default_url_options[:host] = ENV.fetch('DOMAIN_NAME', 'localhost:3000')
   end
 end

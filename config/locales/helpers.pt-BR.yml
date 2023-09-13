@@ -1,6 +1,8 @@
 pt-BR:
   helpers:
     cancel: Cancelar
+    actions:
+      download: Fazer o download
     alert:
       destroy: Você tem certeza?
 
