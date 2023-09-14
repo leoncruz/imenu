@@ -14,7 +14,7 @@ class ItemTest < ActiveSupport::TestCase
   test 'must have an unique name' do
     old_item = items(:burger_jr)
 
-    item = Item.new(name: old_item.name)
+    item = Item.new(name: old_item.name, category: old_item.category)
 
     item.valid?
 

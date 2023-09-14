@@ -3,6 +3,6 @@
 class Item < ApplicationRecord
   belongs_to :category
 
-  validates :name, presence: true, uniqueness: true
+  validates :name, presence: true, uniqueness: { scope: :category }
   validates :price, presence: true
 end
