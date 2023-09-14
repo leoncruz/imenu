@@ -4,7 +4,7 @@ require 'test_helper'
 require 'support/download_helpers'
 
 class ApplicationSystemTestCase < ActionDispatch::SystemTestCase
-  driven_by :selenium, using: :chrome, screen_size: [1400, 1400] do |driver_options|
+  driven_by :selenium, using: :headless_chrome, screen_size: [1400, 1400] do |driver_options|
     driver_options.add_preference(:download, default_directory: DOWNLOAD_PATH.to_s)
   end
 
