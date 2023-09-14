@@ -1,0 +1,33 @@
+<% flash.each do |kind, msg| %>
+  <div class="absolute top-0 right-0 m-4 animate-slide-in" data-controller="flash">
+    <div class="flex items-center w-fit p-5 bg-white border rounded-lg shadow-lg" role="alert">
+      <div class="inline-flex items-center justify-center flex-shrink-0 w-8 h-8 rounded-lg">
+        <% if kind == 'notice' %>
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8 text-green-500">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+          </svg>
+          <span class="sr-only">Check icon</span>
+        <% else %>
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-red-500">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.007v.008H12v-.008z" />
+          </svg>
+          <span class="sr-only">Warning icon</span>
+        <% end %>
+      </div>
+
+      <div class="mx-4 my-2"><%= msg %></div>
+
+      <div class="absolute top-2 right-2">
+        <button type="button"
+          class="p-2 rounded-lg inline-flex items-center justify-center text-slate-500"
+          aria-label="Close"
+          data-action="flash#slideOutAnimation">
+          <span class="sr-only">Close</span>
+          <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+<% end %>

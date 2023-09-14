@@ -13,6 +13,10 @@
   <body class="bg-gray-100">
     <%= render 'layouts/navbar' %>
 
+    <div id="flashes">
+      <%= render 'layouts/flash_messages' %>
+    </div>
+
     <main class="mx-auto max-w-4xl h-screen">
       <%= yield %>
     </main>
