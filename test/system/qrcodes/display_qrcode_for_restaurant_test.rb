@@ -17,7 +17,7 @@ class DisplayQrcodeForRestaurantTest < ApplicationSystemTestCase
       click_on I18n.t('helpers.submit.restaurant.create')
     end
 
-    assert_current_path '/accounts/sign_in'
+    assert_current_path '/'
 
     perform_enqueued_jobs
 
