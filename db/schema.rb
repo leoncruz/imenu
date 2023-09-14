@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_09_14_000511) do
+ActiveRecord::Schema[7.0].define(version: 2023_09_14_030415) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
   enable_extension "plpgsql"
@@ -92,9 +92,19 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_14_000511) do
     t.index ["slug"], name: "index_restaurants_on_slug", unique: true
   end
 
+  create_table "tables", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.string "code", null: false
+    t.uuid "restaurant_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["code", "restaurant_id"], name: "index_tables_on_code_and_restaurant_id", unique: true
+    t.index ["restaurant_id"], name: "index_tables_on_restaurant_id"
+  end
+
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "categories", "menus"
   add_foreign_key "items", "categories"
   add_foreign_key "menus", "restaurants"
+  add_foreign_key "tables", "restaurants"
 end
