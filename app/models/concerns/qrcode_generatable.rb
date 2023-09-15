@@ -16,7 +16,7 @@ module QrcodeGeneratable
 
     qrcode.attach(
       io: StringIO.new(png.to_s),
-      filename: 'qrcode.png',
+      filename: qrcode_filename || 'qrcode.png',
       content_type: 'image/png'
     )
   end
@@ -30,4 +30,6 @@ module QrcodeGeneratable
   def enqueue_qrcode_generator
     QrcodeGenerator.perform_later(self)
   end
+
+  def qrcode_filename; end
 end

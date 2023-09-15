@@ -12,4 +12,8 @@ class Table < ApplicationRecord
   def qrcode_url
     Rails.application.routes.url_helpers.restaurant_url(restaurant, table: code)
   end
+
+  def qrcode_filename
+    "qrcode-#{code}.png"
+  end
 end
