@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module Restaurant::QrcodeGeneratable
+module QrcodeGeneratable
   extend ActiveSupport::Concern
 
   included do
@@ -10,9 +10,7 @@ module Restaurant::QrcodeGeneratable
   end
 
   def generate_qrcode
-    url = Rails.application.routes.url_helpers.restaurant_url(self)
-
-    code = RQRCode::QRCode.new(url)
+    code = RQRCode::QRCode.new(qrcode_url)
 
     png = code.as_png(fill: ChunkyPNG::Color::TRANSPARENT)
 
@@ -24,6 +22,10 @@ module Restaurant::QrcodeGeneratable
   end
 
   private
+
+  def qrcode_url
+    raise NotImplementedError, 'must be implemented by inclued class'
+  end
 
   def enqueue_qrcode_generator
     QrcodeGenerator.perform_later(self)
