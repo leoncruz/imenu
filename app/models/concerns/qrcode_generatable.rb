@@ -4,7 +4,7 @@ module QrcodeGeneratable
   extend ActiveSupport::Concern
 
   included do
-    has_one_attached :qrcode, dependent: :destroy
+    has_one_attached :qrcode, dependent: :purge_later
 
     after_create_commit :enqueue_qrcode_generator
   end
