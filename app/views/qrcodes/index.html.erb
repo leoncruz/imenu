@@ -14,4 +14,8 @@
       </svg>
     <% end %>
   </div>
+
+  <%= turbo_frame_tag "restaurant_tables", src: restaurant_tables_path(@restaurant, from: :qrcodes), loading: :lazy do %>
+    <%= t('qrcodes.loading.tables') %>
+  <% end %>
 </div>
