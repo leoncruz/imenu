@@ -9,4 +9,10 @@ class Restaurant < ApplicationRecord
          :recoverable, :rememberable, :validatable, :confirmable
 
   validates :name, presence: true
+
+  private
+
+  def qrcode_url
+    Rails.application.routes.url_helpers.restaurant_url(self)
+  end
 end
