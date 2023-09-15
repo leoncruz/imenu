@@ -3,6 +3,8 @@ pt-BR:
     cancel: Cancelar
     actions:
       download: Fazer o download
+      remove: Remover
+      edit: Editar
     alert:
       destroy: Você tem certeza?
 
@@ -17,3 +19,7 @@ pt-BR:
       item:
         create: Adicionar
         update: Atualizar
+
+      table:
+        create: Salvar
+        update: Salvar

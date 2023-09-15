@@ -8,6 +8,8 @@ Rails.application.routes.draw do
   resources :restaurants, only: :show, param: :slug do
     get 'qrcodes', to: 'qrcodes#index'
 
+    resources :tables, shallow: true, except: :show
+
     resources :menus, shallow: true, only: :edit do
       resources :categories, shallow: true do
         resources :items, shallow: true

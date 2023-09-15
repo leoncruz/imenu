@@ -8,6 +8,9 @@ class Restaurant < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :confirmable
 
+  has_many :tables, dependent: :destroy
+  has_one :menu, dependent: :destroy
+
   validates :name, presence: true
 
   private

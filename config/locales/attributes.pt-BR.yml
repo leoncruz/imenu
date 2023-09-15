@@ -35,3 +35,6 @@ pt-BR:
         name: Nome
         price: Preço
         description: Descrição
+
+      table:
+        code: Código

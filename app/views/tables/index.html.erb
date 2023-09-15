@@ -1,0 +1,21 @@
+<div class="w-full flex flex-col mt-10">
+   <div class="mx-auto text-center">
+     <h2 class="text-2xl text-center"><%= t('tables.index.title') %></h2>
+  </div>
+
+  <div class="w-full flex justify-end">
+    <%= link_to t('tables.index.new_table'), new_restaurant_table_path(current_restaurant),
+      data: { turbo_frame: "new_table" },
+      class: "py-2 px-4 text-black bg-amber-300 border rounded-lg shadow" %>
+  </div>
+
+  <%= turbo_frame_tag "new_table" %>
+
+  <%= turbo_frame_tag "edit_table" %>
+
+  <%= turbo_frame_tag "restaurant_tables" do %>
+    <div class="grid gap-4 grid-cols-1 md:grid-cols-4 lg:grid-cols-5" id="tables-list">
+      <%= render @tables %>
+    </div>
+  <% end %>
+</div>

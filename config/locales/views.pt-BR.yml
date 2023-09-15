@@ -8,6 +8,7 @@ pt-BR:
     sign_up: Cadastrar
     menu: Cardápio
     qrcodes: QRCodes
+    tables: Mesas
 
   restaurants:
     registrations:
@@ -39,3 +40,16 @@ pt-BR:
       remove: Remover
     edit:
       title: Editar Item
+
+  qrcodes:
+    loading:
+      tables: Carregando QRCode das mesas
+
+  tables:
+    index:
+      title: Mesas
+      new_table: Adicionar mesa
+    new:
+      title: Nova Mesa
+    edit:
+      title: Editar Mesa

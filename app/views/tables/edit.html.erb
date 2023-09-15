@@ -1,0 +1,7 @@
+<%= turbo_frame_tag "edit_table" do %>
+  <%= render SimpleModalComponent.new(t('tables.edit.title'), restaurant_tables_path(current_restaurant)) do |component| %>
+    <% component.with_body do %>
+      <%= render 'form', table: @table, url: table_path(@table), method: :patch %>
+    <% end %>
+  <% end %>
+<% end %>

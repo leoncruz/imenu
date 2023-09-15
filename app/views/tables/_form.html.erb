@@ -1,0 +1,12 @@
+<%= form_with model: table, url: url, method: method, class: "w-full flex flex-row items-center gap-5" do |f| %>
+  <div class="w-full flex flex-col space-y-2">
+    <%= f.label :code  %>
+    <%= f.text_field :code, class: "w-full py-2 px-4 border rounded-lg" %>
+    <span class="text-red-500"><%= f.object.errors[:code].to_sentence %></span>
+  </div>
+
+  <div class="flex items-center space-x-4">
+    <%= f.submit class: "py-2 px-4 border rounded-lg shadow bg-amber-300 text-black cursor-pointer self-end" %>
+    <%= link_to t('helpers.cancel'), restaurant_tables_path(current_restaurant), class: "text-red-500 font-normal" %>
+  </div>
+<% end %>

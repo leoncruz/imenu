@@ -1,0 +1,7 @@
+<%= turbo_frame_tag "new_table" do %>
+  <%= render SimpleModalComponent.new(t('tables.new.title'), restaurant_tables_path) do |component| %>
+    <% component.with_body do %>
+      <%= render 'form', table: @table, url: restaurant_tables_path, method: :post %>
+    <% end %>
+  <% end %>
+<% end %>
