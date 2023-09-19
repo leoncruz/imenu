@@ -53,3 +53,10 @@ pt-BR:
       title: Nova Mesa
     edit:
       title: Editar Mesa
+    show:
+      no_table_selected: Nenhuma mesa selecionada
+      table_html: 'Mesa: <span class="font-semibold">%{table}</span>'
+
+    select:
+      index:
+        title: Selecione uma mesa

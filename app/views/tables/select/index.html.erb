@@ -1,0 +1,12 @@
+<%= turbo_frame_tag "select_tables" do %>
+  <%= render SimpleModalComponent.new(t('tables.select.index.title'), restaurant_path(@restaurant)) do |component| %>
+    <% component.with_body do %>
+      <div class="items gap-4 mt-10 grid grid-cols-3 place-items-center">
+        <% @restaurant.tables.each do |table| %>
+          <%= link_to table.code, restaurant_table_check_availability_path(@restaurant, table), data: { turbo: false },
+            class: "w-fit h-fit py-4 px-6 border rounded-lg text-black bg-amber-400 cursor-pointer" %>
+        <% end %>
+      </div>
+    <% end %>
+  <% end %>
+<% end %>
