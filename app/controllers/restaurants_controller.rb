@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class RestaurantsController < ApplicationController
+  include OrderScoped
+
   skip_before_action :authenticate_restaurant!
 
   before_action :set_restaurant
