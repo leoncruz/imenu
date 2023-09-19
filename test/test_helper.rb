@@ -1,5 +1,9 @@
 # frozen_string_literal: true
 
+require 'simplecov'
+
+SimpleCov.start 'rails'
+
 require 'dotenv'
 
 Dotenv.overload('.env.test')
@@ -7,10 +11,6 @@ Dotenv.overload('.env.test')
 ENV['RAILS_ENV'] ||= 'test'
 require_relative '../config/environment'
 require 'rails/test_help'
-
-require 'simplecov'
-
-SimpleCov.start 'rails'
 
 class ActiveSupport::TestCase
   # Run tests in parallel with specified workers
