@@ -18,4 +18,6 @@ Rails.application.routes.draw do
       end
     end
   end
+
+  patch 'shopping_carts/add', to: 'shopping_carts#create'
 end
