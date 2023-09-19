@@ -34,16 +34,8 @@
           <div class="items gap-4 mt-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
             <% category.items.each do |item| %>
               <div class="relative border rounded-lg shadow-sm w-full h-fit flex flex-row p-2 space-x-4">
-                <% if @anonymous_client %>
-                  <%= link_to shopping_carts_add_path(item_id: item.id), class: "absolute -top-3 -right-1 bg-green-500 rounded-full",
-                    data: { turbo_method: :patch, turbo_frame: '_top' } do
-                  %>
-                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8 text-white">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
-                  </svg>
-                  <span class="sr-only">Add to cart Icon</span>
-                  <% end %>
-                <% end %>
+                <%= render AddToCartButtonComponent.new(@anonymous_client, item, @table_not_selected) %>
+
                 <img class="my-2 w-[100px] border rounded-lg" src="https://generatorfun.com/code/uploads/Random-Food-image-7.jpg" />
 
                 <div class="flex flex-col items-start justify-center space-y-5 lg:space-y-0 lg:m-0">
