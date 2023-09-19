@@ -10,6 +10,8 @@ Rails.application.routes.draw do
 
     resources :tables, shallow: true, except: :show
 
+    get '/tables/available/:table_id', to: 'tables/check_availability#show', as: :table_check_availability
+
     resources :menus, shallow: true, only: :edit do
       resources :categories, shallow: true do
         resources :items, shallow: true

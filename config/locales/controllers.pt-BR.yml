@@ -1,0 +1,9 @@
+pt-BR:
+  shopping_carts:
+    create:
+      notice: Item adicionado
+
+  tables:
+    check_availability:
+      show:
+        alert: Mesa indisponível
