@@ -5,7 +5,7 @@ module Tables
     skip_before_action :authenticate_restaurant!
 
     def show
-      restaurant = Restaurant.find_by(slug: params[:restaurant_slug])
+      restaurant = Restaurant.find_by!(slug: params[:restaurant_slug])
 
       table = restaurant.tables.find(params[:table_id])
 
@@ -14,7 +14,7 @@ module Tables
 
         redirect_to restaurant_path(restaurant)
       else
-        redirect_to root_path, alert: t('.alert')
+        redirect_to restaurant_path(restaurant), alert: t('.alert')
       end
     end
   end

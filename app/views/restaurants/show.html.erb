@@ -6,6 +6,13 @@
         <div class="hidden md:block">
           <%= render 'layouts/shopping_cart', shopping_cart: @shopping_cart %>
         </div>
+        <div class="mt-4">
+          <% if @table %>
+            <%= t('tables.show.table_html', table: @table.code) %>
+          <% else %>
+            <span class="font-semibold"><%= t('tables.show.no_table_selected') %></span>
+          <% end %>
+        </div>
       <% end %>
     </div>
 

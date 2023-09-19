@@ -14,7 +14,9 @@ module OrderScoped
   attr_reader :table, :anonymous_client, :shopping_cart
 
   def set_table
-    @table = Table.find cookies.signed[:table]
+    @table = Table.find cookies.signed[:table] if cookies.signed[:table]
+
+    @table_not_selected = @table ? false : true
   end
 
   def set_anonymous_client
@@ -29,6 +31,6 @@ module OrderScoped
   end
 
   def set_shopping_cart
-    @shopping_cart = ShoppingCart.find_or_create_by(table.id, anonymous_client.id)
+    @shopping_cart = ShoppingCart.find_or_create_by(table.id, anonymous_client.id) if table
   end
 end
