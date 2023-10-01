@@ -1,29 +1,51 @@
 # frozen_string_literal: true
 
 class ShoppingCart
-  include ActiveModel::Model
-  include ActiveModel::Attributes
+  attr_accessor :table_id, :anonymous_client_id
 
-  attribute :table_id, :string
-  attribute :anonymous_client_id, :string
+  delegate :<<, :append, :elements, to: :items_list
+  delegate :[], to: :quantity_by_item
 
-  def self.find_or_create_by(table_id, anonymous_client_id)
-    new(table_id:, anonymous_client_id:).tap(&:counter)
+  alias items elements
+
+  def initialize(table_id:, anonymous_client_id:)
+    @table_id = table_id
+    @anonymous_client_id = anonymous_client_id
   end
 
   def id
-    "#{table_id}-#{anonymous_client_id}"
+    "#{table_id}:#{anonymous_client_id}"
   end
 
-  def add_item(_id)
-    counter.increment
+  def add_item(id)
+    items_list.append(id)
+    quantity_by_item.update(id => 1)
   end
 
-  def counter_key
-    "#{id}-counter"
+  def increase_item(id)
+    quantity_by_item.hincrby id, 1
   end
 
-  def counter
-    @counter ||= Kredis.counter counter_key, expires_in: 1.hour
+  def decrease_item(id)
+    quantity_by_item.hincrby id, -1
+  end
+
+  private
+
+  def items_list
+    @items_list ||= Kredis.list items_key, expires_in: 1.hour
+  end
+
+  def quantity_by_item
+    @quantity_by_item ||=
+      Kredis.hash quantity_by_item_key, expires_in: 1.hour, typed: :integer
+  end
+
+  def items_key
+    "shopping_cart:item:#{id}"
+  end
+
+  def quantity_by_item_key
+    "shopping_cart:quantity_by_item:#{id}"
   end
 end
