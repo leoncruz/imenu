@@ -31,6 +31,6 @@ module OrderScoped
   end
 
   def set_shopping_cart
-    @shopping_cart = ShoppingCart.find_or_create_by(table.id, anonymous_client.id) if table
+    @shopping_cart = ShoppingCart.new(table_id: table.id, anonymous_client_id: anonymous_client.id) if table
   end
 end

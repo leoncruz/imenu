@@ -9,6 +9,8 @@ class Restaurant < ApplicationRecord
          :recoverable, :rememberable, :validatable, :confirmable
 
   has_many :tables, dependent: :destroy
+  has_many :categories, through: :menu
+  has_many :items, through: :categories
   has_one :menu, dependent: :destroy
 
   validates :name, presence: true
