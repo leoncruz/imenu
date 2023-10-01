@@ -1,0 +1,3 @@
+<%= tag.div class: "text-slate-600", id: dom_id(item, :shopping_cart_quantity) do %>
+  <%= @shopping_cart[item.id] || 0 %>
+<% end %>

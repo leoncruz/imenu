@@ -5,6 +5,10 @@ class ShoppingCartsController < ApplicationController
 
   skip_before_action :authenticate_restaurant!
 
+  def show
+    @items = Item.find(shopping_cart.items)
+  end
+
   def create
     shopping_cart.add_item(params[:item_id])
 

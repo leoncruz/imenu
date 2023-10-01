@@ -60,3 +60,8 @@ pt-BR:
     select:
       index:
         title: Selecione uma mesa
+
+  shopping_carts:
+    show:
+      title: Carrinho
+      order: Pedir

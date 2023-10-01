@@ -1,0 +1,56 @@
+<div class="w-full flex flex-col items-center justify-center">
+   <div class="py-10 mx-auto text-center flex flex-col space-y-5">
+      <h2 class="text-3xl"><%= t('shopping_carts.show.title') %></h2>
+    </div>
+
+    <div class="w-11/12 h-[calc(100vh/2)] overflow-y-scroll flex flex-col space-y-4">
+      <% @items.each do |item| %>
+        <%= tag.div class: "border rounded-lg shadow-sm w-full bg-white flex flex-col p-2" do %>
+          <div class="flex items-center">
+            <img class="my-2 w-[80px] border rounded-lg" src="https://generatorfun.com/code/uploads/Random-Food-image-7.jpg" />
+
+            <div class="flex flex-col items-start justify-center space-y-3 lg:space-y-0 lg:m-0 ml-4">
+              <h1 class="text-md"><%= item.name %></h1>
+
+              <span class="text-sm font-bold"><%= number_to_currency(item.price, precision: 2) %></span>
+            </div>
+          </div>
+
+          <div class="ml-auto flex items-center space-x-4 text-md">
+            <div>
+              <%= link_to decrease_shopping_cart_item_path(item), data: { turbo_preserve_scroll: true, turbo_stream: true, turbo_method: :patch } do %>
+                <svg xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="currentColor"
+                  class="w-4 h-4"
+                >
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 12h-15" />
+                </svg>
+              <% end %>
+            </div>
+            <%= render 'item_quantity', shopping_cart: @shopping_cart, item: item %>
+            <div>
+              <%= link_to increase_shopping_cart_item_path(item), data: { turbo_preserve_scroll: true, turbo_stream: true, turbo_method: :patch } do %>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewbox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="currentcolor"
+                  class="w-4 h-4"
+                >
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+                </svg>
+              <% end %>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+
+    <%= button_to t('shopping_carts.show.order'), root_path,
+      class: "w-full py-2 px-4 border rounded-lg shadow bg-green-500 text-white cursor-pointer text-center",
+      form_class: "w-11/12 m-4" %>
+</div>
