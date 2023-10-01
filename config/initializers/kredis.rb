@@ -2,7 +2,7 @@
 # frozen_string_literal: true
 
 class Kredis::Types::Hash < Kredis::Types::Proxying
-  proxying :hget, :hset, :hmget, :hdel, :hgetall, :hkeys, :hvals, :del, :exists?, :expire
+  proxying :hget, :hset, :hmget, :hdel, :hgetall, :hkeys, :hvals, :del, :exists?, :expire, :hincrby
 
   attr_accessor :typed, :expires_in
 
